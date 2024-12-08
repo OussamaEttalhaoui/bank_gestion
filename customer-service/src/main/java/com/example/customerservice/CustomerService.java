@@ -15,6 +15,15 @@ public class CustomerService {
         return customerRepository.save(customer);
     }
 
+    public Customer updateCustomer(Customer customer) {
+        return customerRepository.save(customer);
+    }
+
+    public void deleteCustomer(Long id) {
+        customerRepository.deleteById(id);
+    }
+
+
     public Customer getCustomerById(Long id) {
         return customerRepository.findById(id).orElse(null);
     }
