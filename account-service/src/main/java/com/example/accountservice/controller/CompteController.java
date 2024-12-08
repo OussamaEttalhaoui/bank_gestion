@@ -55,7 +55,8 @@ public class CompteController {
         return ResponseEntity.ok(comptes);
     }
 
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLOYEE')")
+//    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLOYEE') ")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLOYEE') or hasAuthority('CLIENT')")
     @GetMapping("/{id}")
     public ResponseEntity<Compte> getCompteById(@PathVariable Long id) {
         Compte compte = compteService.findById(id);
@@ -64,8 +65,10 @@ public class CompteController {
         }
         return ResponseEntity.ok(compte);
     }
+//  client
+//    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLOYEE')   ")
 
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLOYEE')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLOYEE') or hasAuthority('CLIENT')")
     @PutMapping("/{id}")
     public ResponseEntity<Compte> updateCompte(@PathVariable Long id, @RequestBody Compte compte) {
         Compte updatedCompte = compteService.updateCompte(id, compte);

@@ -1,5 +1,6 @@
-package com.example.transactionservice;
+package com.example.transactionservice.feign;
 
+import com.example.transactionservice.CompteDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,5 +15,6 @@ public interface AccountClient {
 
     @PutMapping("/api/comptes/{id}")
     CompteDTO updateCompte(@PathVariable Long id, @RequestBody CompteDTO compteDTO);
+
 }
 
